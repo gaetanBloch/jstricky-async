@@ -1,21 +1,21 @@
-const promise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve('Resolved!');
-  }, 2000);
-});
-promise
-  .then(response => {
-    console.log(response);
-    return 123;
+function setTimer (duration) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve();
+    }, duration);
+  });
+}
+
+setTimer(2000)
+  .then(() => {
+    console.log('First then!');
   })
-  .then(data => {
+  .then(() => {
     console.log('Second then!');
-    console.log(data);
-    return promise;
+    return setTimer(3000);
   })
-  .then((data) => {
+  .then(() => {
     console.log('Third then!');
-    console.log(data);
   });
 
 fetch('https://jsonplaceholder.typicode.com/todos/1')
