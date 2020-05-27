@@ -1,7 +1,8 @@
 function setTimer(duration) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve();
+      // resolve();
+      reject();
     }, duration);
   });
 }
@@ -16,9 +17,12 @@ setTimer(2000)
   })
   .then(() => {
     console.log('Third then!');
+  })
+  .catch(() => {
+    console.log('Timer Failed!');
   });
 
-fetch('https://jsonplaceholder.typicode/todos/1')
+fetch('https://jsonplaceholder.typicode.com/todos/1')
   .then(response => response.json())
   .then(json => console.log(json))
   .catch(error => {
