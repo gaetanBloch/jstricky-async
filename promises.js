@@ -1,8 +1,8 @@
 function setTimer(duration) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      // resolve();
-      reject();
+      resolve();
+      // reject();
     }, duration);
   });
 }
