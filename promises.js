@@ -20,10 +20,8 @@ setTimer(2000)
 
 fetch('https://jsonplaceholder.typicode/todos/1')
   .then(response => response.json())
-  .then(
-    json => console.log(json),
-    error => {
-      alert('This failed!');
-      console.log(error);
-    }
-  );
+  .then(json => console.log(json))
+  .catch(error => {
+    alert('This failed!');
+    console.log(error);
+  });
